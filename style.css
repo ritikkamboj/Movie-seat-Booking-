@@ -23,6 +23,9 @@ body{
 
     
 }
+.container{
+    perspective:1000px 
+}
 
 .movie-container
 {
@@ -79,12 +82,58 @@ body{
 }
 /* par upar waale hover se showcase waale seat icon type bhi scale up honge , jo hum nai chahte hai , for that see below code 
  */
- .showcase.seat:hover{
+ .showcase .seat:hover{
      cursor: default;
-     transform:scale(1);
+     transform:scale(1.0);
+ }
+ .showcase{
+
+    background:rgba(0,0,0,1);
+    padding:5px 10px;
+    /* width:100%; */
+    border-radius:5px;
+    color:#777;
+    list-style-type:none;
+    display:flex;
+    justify-content: space-between;
+
+
+
+
+ }
+ .showcase li{
+     display:flex;
+     margin:0 10px;
+     justify-content:center;
+     /* width:200px; */
+     align-items:center;
+
+ }
+
+ .showcase li small{
+
+    margin-left: 2px;
  }
 .row
 {
      display:flex;
 
 }
+ .screen
+ {
+     background-color:#fff;
+     height:70px;
+     width:100%;
+     margin:15px 0;
+     transform:rotateX(-45deg);
+     /* upparle waale ka ni pata chal kya kara isne  */
+box-shadow:0 3px 10px rgba(255 ,255,255,0.6); 
+ }
+ p.text{
+     margin: 5px 0;
+     
+ }
+ p.text span{
+     color:#6feaf6;
+
+ }
