@@ -8,6 +8,7 @@ const total= document.getElementById('total');
 const movieSelect=document.getElementById('movie');
 
 
+populateUI();
 let ticketPrice=+movieSelect.value;
 // console.log( ticketPrice);
 
@@ -53,6 +54,31 @@ function updateSelectedCount(){
 
 
 }
+
+//get data from local storage and populate UI
+//pehlr setItem kara tha as you see above ,ab get kaare hai use 
+function populateUI(){
+    const selectedSeats=JSON.parse(localStorage.getItem('selectedSeats'));
+    console.log(selectedSeats);
+    if(selectedSeats!==null && selectedSeats.length>0)
+    {
+        seats.forEach((seat,index)=>{
+            if(selectedSeats.indexOf(index)>-1){
+                seat.classList.add('selected');
+            }
+
+        })
+    }
+    const selectedMovieIndex=localStorage.getItem('selectedMovieIndex');
+
+    if(selectedMovieIndex!==null)
+    {
+        movieSelect.selectedIndex=selectedMovieIndex;
+        //yaha hoga kya ki jab hum , koi hor movie select karenge tab seat ke according rate and no of seats niche line mein toh print hojega par , jab hum koi hor movie select kaenge tab bhi 
+        //rate and number of seats update hojenge , par par par yaha reload karne pe ,uske baad rate or seats ki value zero hojaengi
+
+    }
+}
 // movie selected event
 movieSelect.addEventListener('change',e => {
 
@@ -80,3 +106,5 @@ container.addEventListener('click' ,e =>
 
 
 })
+//initial count and total set
+updateSelectedCount(); //yeh tab ki karwayi ki ja rahi hai , jab reload karenge 
